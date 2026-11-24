@@ -1,0 +1,146 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* Main bar container */
+window#waybar {
+    background-color: rgba(15, 15, 15, 0.92); /* Deep obsidian */
+    color: #c8c8c8; /* Light silver text */
+    border: 1px solid #2e2e2e; /* Dark charcoal border */
+    border-radius: 10px;
+}
+
+/* Modules padding */
+#custom-arch,
+#workspaces,
+#mpris,
+#custom-cpucat,
+#wireplumber,
+#cpu,
+#memory,
+#disk,
+#battery,
+#clock,
+#tray {
+    padding: 0 6px;
+    color: #c8c8c8;
+}
+
+/* Arch logo & user tag */
+#custom-arch {
+    background-color: #1c1c1c;
+    color: #a0a0a0;
+    padding: 0 8px;
+}
+
+/* Workspaces (ext/workspaces) */
+#workspaces button {
+    padding: 0 5px;
+    color: #606060; /* Dim ash */
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background-color: #1c1c1c;
+    color: #c8c8c8;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background-color: #2e2e2e; /* Charcoal highlight */
+    color: #ffffff; /* Pure white */
+    border-bottom: 2px solid #a0a0a0;
+}
+
+#workspaces button.urgent {
+    background-color: #d0d0d0; /* High-contrast light gray alert */
+    color: #0f0f0f;
+}
+
+/* Separator */
+#custom-sep {
+    color: #2e2e2e;
+    padding: 0 2px;
+}
+
+/* Spotify / MPRIS */
+#mpris {
+    color: #a0a0a0;
+}
+
+#mpris.paused {
+    color: #606060;
+}
+
+/* Right-side system modules */
+#custom-cpucat {
+    color: #a0a0a0;
+}
+
+#wireplumber.muted {
+    color: #606060;
+}
+
+/* Battery states */
+#battery {
+    color: #c8c8c8;
+}
+
+#battery.good {
+    color: #b0b0b0;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #e0e0e0;
+}
+
+#battery.warning:not(.charging) {
+    color: #9e9e9e;
+}
+
+#battery.critical:not(.charging) {
+    color: #ffffff; /* Bright white alert */
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #0f0f0f;
+    }
+}
+
+#clock {
+    color: #f0f0f0;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#custom-waycal {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    padding: 0 10px;
+    margin: 5px 0;
+    border-radius: 16px;
+    font-size: 12px;
+}
+
+#custom-waycal:hover {
+    background-color: #2e2e2e;
+}

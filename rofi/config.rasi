@@ -1,0 +1,156 @@
+configuration {
+    modi:                "drun,run,window";
+    show-icons:          false;
+    display-drun:        "  Apps";
+    display-run:         "  Run";
+    display-window:      "  Windows";
+    drun-display-format: "{name}";
+    font:                "JetBrainsMono Nerd Font 11";
+    sidebar-mode:        false;
+}
+
+* {
+    /* monochrome palette */
+    night:        #0f0f0f;   /* deep obsidian */
+    night-alt:    #1c1c1c;   /* lifted dark gray */
+    dusk:         #2e2e2e;   /* charcoal highlight */
+    steel:        #4a4a4a;   /* crisp border gray */
+    slate:        #606060;   /* dim ash midtone */
+    mist:         #c8c8c8;   /* light silver text */
+    star:         #ffffff;   /* pure white text */
+    glow:         #e0e0e0;   /* bright silver accent */
+
+    background-color: transparent;
+    text-color:       @mist;
+    margin:           0;
+    padding:          0;
+    spacing:          0;
+}
+
+window {
+    location:         center;
+    width:            440px;
+    background-color: @night;
+    border:           1px;
+    border-color:     @steel;
+    border-radius:    14px;
+}
+
+mainbox {
+    padding:  12px;
+    spacing:  10px;
+    children: [ inputbar, listview, mode-switcher ];
+}
+
+/* ---------- input ---------- */
+inputbar {
+    padding:          8px 12px;
+    spacing:          8px;
+    background-color: @night-alt;
+    border:           1px;
+    border-color:     @dusk;
+    border-radius:    10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @glow;
+}
+
+entry {
+    text-color:        @star;
+    placeholder:       "Search…";
+    placeholder-color: @slate;
+    cursor:            text;
+}
+
+/* ---------- list ---------- */
+listview {
+    lines:        6;
+    columns:      1;
+    scrollbar:    false;
+    fixed-height: true;
+    spacing:      4px;
+    cycle:        true;
+}
+
+element {
+    padding:       7px 10px;
+    spacing:       10px;
+    border-radius: 8px;
+    orientation:   horizontal;
+}
+
+element-icon {
+    size:             20px;
+    vertical-align:   0.5;
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @mist;
+}
+
+element selected.normal {
+    background-color: @dusk;
+    text-color:       @star;
+    border:           0 0 0 3px;
+    border-color:     @glow;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    text-color: @star;
+}
+
+element normal.active,
+element alternate.active {
+    text-color: @glow;
+}
+
+element selected.urgent {
+    background-color: @glow;
+    text-color:       @night;
+}
+
+element selected.active {
+    background-color: @dusk;
+    text-color:       @star;
+}
+
+/* ---------- mode switcher ---------- */
+mode-switcher {
+    spacing: 8px;
+}
+
+button {
+    padding:          6px;
+    border-radius:    8px;
+    background-color: @night-alt;
+    text-color:       @slate;
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: @dusk;
+    text-color:       @star;
+}
+
+/* ---------- misc ---------- */
+message {
+    padding:          10px;
+    border-radius:    10px;
+    background-color: @night-alt;
+}
+
+textbox {
+    text-color: @mist;
+}
